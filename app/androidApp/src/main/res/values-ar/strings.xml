@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مكانزا - سكن طلاب بني سويف</string>
+    <string name="welcome_headline">دور على سكنك في بني سويف</string>
+    <string name="welcome_subtitle">شقق وسكن مشترك يناسب احتياجاتك وميزانيتك</string>
+    <string name="currency_symbol">ج.م.</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Makanza Beni Suef Student Housing</string>
+    <string name="welcome_headline">Find Your Student Housing in Beni Suef</string>
+    <string name="welcome_subtitle">Apartments and shared student housing fitting your budget</string>
+    <string name="currency_symbol">EGP</string>
+</resources>
