@@ -9,6 +9,7 @@ import io.ktor.server.netty.*
 import kotlinx.coroutines.runBlocking
 
 fun main() {
+    JwtConfig.secret // fail fast before starting if JWT_SECRET is missing or weak
     val port = System.getenv("PORT")?.toIntOrNull() ?: 8080
     embeddedServer(Netty, port = port, host = "0.0.0.0", module = Application::module)
         .start(wait = true)

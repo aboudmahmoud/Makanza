@@ -7,7 +7,7 @@ import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
 
 fun Application.configureSecurity() {
-    val jwtSecret = System.getenv("JWT_SECRET") ?: "makanza-secret-key-2025-jwt"
+    val jwtSecret = JwtConfig.secret
     val jwtIssuer = "makanza-api"
     val jwtAudience = "makanza-users"
 

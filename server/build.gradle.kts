@@ -37,3 +37,8 @@ dependencies {
     testImplementation(libs.ktor.serverTestHost)
     testImplementation(libs.kotlin.testJunit)
 }
+
+tasks.test {
+    // Throwaway secret for tests only; real runs must set JWT_SECRET themselves.
+    environment("JWT_SECRET", "test-only-jwt-secret-not-for-production-use")
+}

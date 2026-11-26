@@ -6,6 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm
 import com.explorer.makanza.database.DatabaseFactory.dbQuery
 import com.explorer.makanza.database.UsersTable
 import com.explorer.makanza.models.*
+import com.explorer.makanza.plugins.JwtConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
@@ -16,7 +17,7 @@ import java.util.Date
 import java.util.UUID
 
 class AuthService(
-    private val jwtSecret: String = System.getenv("JWT_SECRET") ?: "makanza-secret-key-2025-jwt",
+    private val jwtSecret: String = JwtConfig.secret,
     private val jwtIssuer: String = "makanza-api",
     private val jwtAudience: String = "makanza-users"
 ) {

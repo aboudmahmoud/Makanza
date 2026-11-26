@@ -1,3 +1,4 @@
+import java.util.Properties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -19,6 +20,12 @@ dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
 
+val localProps = Properties()
+val localPropsFile = rootProject.file("local.properties")
+if (localPropsFile.exists()) {
+    localPropsFile.inputStream().use { stream -> localProps.load(stream) }
+}
+
 android {
     namespace = "com.explorer.makanza"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -37,10 +44,6 @@ android {
             //   release.storePassword=...
             //   release.keyAlias=makanza-release-key
             //   release.keyPassword=...
-            val localProps = java.util.Properties().apply {
-                val f = rootProject.file("local.properties")
-                if (f.exists()) f.inputStream().use { load(it) }
-            }
             val keystoreFile = file("${rootDir}/makanza-release-key.jks")
             val storePass = localProps.getProperty("release.storePassword")
             if (keystoreFile.exists() && storePass != null) {
